@@ -8,6 +8,45 @@ CREATE TABLE roles(
     updated_at TIMESTAMP(0) NOT NULL
 );
 
+INSERT INTO roles(
+    name,
+    route,
+    created_at,
+    updated_at
+) 
+VALUES(
+    'CLIENTE',
+    'client/products/list',
+    '2022-07-05',
+    '2022-07-05'
+);
+
+INSERT INTO roles(
+    name,
+    route,
+    created_at,
+    updated_at
+) 
+VALUES(
+    'RESTAURANTE',
+    'restaurant/orders/list',
+    '2022-07-05',
+    '2022-07-05'
+);
+
+INSERT INTO roles(
+    name,
+    route,
+    created_at,
+    updated_at
+) 
+VALUES(
+    'REPARTIDOR',
+    'delivery/orders/list',
+    '2022-07-05',
+    '2022-07-05'
+);
+
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users(
     id BIGSERIAL PRIMARY KEY,
@@ -33,3 +72,4 @@ CREATE TABLE user_has_roles(
     FOREIGN KEY(id_rol) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE CASCADE,
     PRIMARY KEY(id_user, id_rol)
 );
+
