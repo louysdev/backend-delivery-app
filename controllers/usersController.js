@@ -69,8 +69,11 @@ module.exports = {
                     lastname: myUser.lastname,
                     email: myUser.email,
                     image: myUser.name,
-                    session_token: `JWT ${token}`
+                    session_token: `JWT ${token}`,
+                    roles: myUser.roles
                 }
+
+                console.log(`USUARIO ENVIADO ${data}`);
 
                 return res.status(201).json({
                     success: true,
