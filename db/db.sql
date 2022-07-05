@@ -22,3 +22,14 @@ CREATE TABLE users(
     created_at TIMESTAMP(0) NOT NULL,
     updated_at TIMESTAMP(0) NOT NULL
 );
+
+DROP TABLE IF EXISTS user_has_roles CASCADE;
+CREATE TABLE user_has_roles(
+    id_user BIGSERIAL NOT NULL,
+    id_rol BIGSERIAL NOT NULL,
+    created_at TIMESTAMP(0) NOT NULL,
+    updated_at TIMESTAMP(0) NOT NULL,
+    FOREIGN KEY(id_user) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(id_rol) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    PRIMARY KEY(id_user, id_rol)
+);
