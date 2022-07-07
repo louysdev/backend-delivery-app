@@ -14,4 +14,4 @@ Para su correcto funcionamiento es necesario instalar lo siguiente:
 
 Si deseea probar las peticions http del servidor le recomiendo utilizar Postman en su version 8.4.0.
 
-https://github.com/Louys-GA/backend_app_delivery_udemy.git
+Este es el enlace de la aplicacion que utiliza este backend: https://github.com/Louys-GA/backend_app_delivery_udemy.git
