@@ -1,9 +1,6 @@
 # backend_app_delivery_udemy
-<<<<<<< HEAD
+
 Backend utilizado en la aplicación de delivery UDEMY.
-=======
-Backend utilizado en la aplicación de delivery.
->>>>>>> roles_de_usuario
 
 Codigo del backend de la aplicacion.
 
