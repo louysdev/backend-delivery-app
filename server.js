@@ -25,7 +25,9 @@ const upload = multer({
 * RUTAS
 */
 const users = require('./routes/userRoutes');
-const { credential } = require('firebase-admin');
+const categories = require('./routes/categoriesRoutes');
+
+// const { credential } = require('firebase-admin');
 
 const port = process.env.PORT || 3000;
 
@@ -55,6 +57,7 @@ app.set('port', port);
 * LLAMANDO A LAS RUTAS
 */
 users(app, upload);
+categories(app);
 
 server.listen(3000, '192.168.8.100' || 'localhost', function() {
     console.log('Aplicacion de NodeJS ' + port + ' Iniciada...')

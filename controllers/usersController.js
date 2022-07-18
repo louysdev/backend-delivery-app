@@ -155,7 +155,7 @@ module.exports = {
             if (User.isPasswordMatched(password, myUser.password)){
                 const token = jwt.sign({id: myUser.id, email: myUser.email}, keys.secretOrKey, {
                     // expiresIn: (60 * 60 * 24) // 1 HORA
-                    expiresIn: (60 * 3) // 2 MINUTOs
+                    // expiresIn: (60 * 3) // 2 MINUTOs
                 });
                 const data = {
                     id: myUser.id,
