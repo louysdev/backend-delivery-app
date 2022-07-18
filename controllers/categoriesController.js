@@ -11,7 +11,7 @@ module.exports = {
 
             return res.status(201).json({
                 message: 'La categoria se creo correctamente',
-                succes: true,
+                success: true,
                 data: data.id
             })
         } 
@@ -19,7 +19,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 message: 'Hubo un error al crear la categoria',
-                succes: false,
+                success: false,
                 error: error
             });
         }
