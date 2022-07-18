@@ -24,7 +24,7 @@ module.exports = {
 
     async findById(req, res, next) {
         try {
-            const id = req.params.id
+            const id = req.params.id;
 
             const data = await User.findByUserId(id);
             console.log(`Usuarios: ${data}`);
@@ -125,7 +125,6 @@ module.exports = {
                 success: true,
                 message: 'Los datos del usuario se actualizaron correctamente'
             });
-
         } 
         catch (error) {
             console.log(`Error: ${error}`);
@@ -155,7 +154,7 @@ module.exports = {
             if (User.isPasswordMatched(password, myUser.password)){
                 const token = jwt.sign({id: myUser.id, email: myUser.email}, keys.secretOrKey, {
                     // expiresIn: (60 * 60 * 24) // 1 HORA
-                    // expiresIn: (60 * 3) // 2 MINUTOs
+                    expiresIn: (60 * 3) // 2 MINUTOs
                 });
                 const data = {
                     id: myUser.id,
