@@ -26,6 +26,7 @@ const upload = multer({
 */
 const users = require('./routes/userRoutes');
 const categories = require('./routes/categoriesRoutes');
+const products = require('./routes/productsRoutes');
 
 // const { credential } = require('firebase-admin');
 
@@ -58,6 +59,7 @@ app.set('port', port);
 */
 users(app, upload);
 categories(app);
+products(app, upload);
 
 server.listen(3000, '192.168.8.100' || 'localhost', function() {
     console.log('Aplicacion de NodeJS ' + port + ' Iniciada...')
