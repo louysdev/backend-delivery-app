@@ -123,7 +123,7 @@ module.exports = {
             
             return res.status(201).json({
                 success: true,
-                message: 'Los datos del usuario se actualizaron correctamente',
+                message: 'Los datos del usuario se actualizaron correctamente'
             });
 
         } 
@@ -155,6 +155,7 @@ module.exports = {
             if (User.isPasswordMatched(password, myUser.password)){
                 const token = jwt.sign({id: myUser.id, email: myUser.email}, keys.secretOrKey, {
                     // expiresIn: (60 * 60 * 24) // 1 HORA
+                    expiresIn: (60 * 3) // 2 MINUTOs
                 });
                 const data = {
                     id: myUser.id,
@@ -190,6 +191,27 @@ module.exports = {
             return res.status(501).json({
                 success: false,
                 message: 'Error al momento de hacer login',
+                error: error
+            });
+        }
+    },
+
+    async logout(req, res, next) { 
+
+        try {
+            const id = req.body.id;
+            await User.updateToken(id, null);
+
+            return res.status(201).json({
+                success: true,
+                message: 'La sesion del usuario se ha cerrado correctamente'
+            });
+        } 
+        catch (e) {
+            console.log(`Error: ${error}`);
+            return res.status(501).json({
+                success: false,
+                message: 'Error al momento de cerrar sesion',
                 error: error
             });
         }
