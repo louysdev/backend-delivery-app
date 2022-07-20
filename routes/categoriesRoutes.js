@@ -6,4 +6,8 @@ module.exports = (app) => {
     //POST ROUTES
     app.post('/api/categories/create', passport.authenticate('jwt', {session: false}), CategoriesController.create);
 
+
+    //GET ROUTES
+    app.get('/api/categories/getAll', passport.authenticate('jwt', {session: false}), CategoriesController.getAll);
+
 }
