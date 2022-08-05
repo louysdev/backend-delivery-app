@@ -11,12 +11,11 @@ types.setTypeParser(1114, function(stringValue) {
 });
 
 const databaseConfig = {
-    'host': 'delivery-app.postgres.database.azure.com',
+    'host': '127.0.0.1',
     'port': 5432,
     'database': 'delivery_db',
-    'user': 'postgre',
-    'password': 'servidor@123',
-    'ssl': true
+    'user': 'postgres',
+    'password': '1234'
 };
 
 const db = pgp(databaseConfig);
