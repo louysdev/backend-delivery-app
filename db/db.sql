@@ -89,10 +89,10 @@ CREATE TABLE products(
     name VARCHAR(180) NOT NULL UNIQUE,
     description VARCHAR(180) NOT NULL,
     price DECIMAL DEFAULT 0,
-    image1 VARCHAR(255) NOT NULL,
+    image1 VARCHAR(255) NULL,
     image2 VARCHAR(255) NULL,
     image3 VARCHAR(255) NULL,
-    id_category BIGINT nOT NULL,
+    id_category BIGINT NOT NULL,
     created_at TIMESTAMP(0) NOT NULL,
     updated_at TIMESTAMP(0) NOT NULL,
     FOREIGN KEY(id_category) REFERENCES categories(id) ON UPDATE CASCADE ON DELETE CASCADE
