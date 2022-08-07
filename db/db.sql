@@ -131,7 +131,7 @@ CREATE TABLE orders(
 
 DROP TABLE IF EXISTS order_has_products CASCADE;
 CREATE TABLE order_has_products(
-    id_orden BIGINT NOT NULL,
+    id_order BIGINT NOT NULL,
     id_product BIGINT NOT NULL,
     quantity BIGINT NOT NULL,
     created_at TIMESTAMP(0) NOT NULL,

@@ -6,7 +6,7 @@ OrderHasProducts.create = (id_order, id_product, quantity) => {
     const sql = `
     INSERT INTO 
         order_has_products(
-            id_orden,
+            id_order,
             id_product,
             quantity,
             created_at,
