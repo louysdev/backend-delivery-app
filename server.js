@@ -28,6 +28,7 @@ const users = require('./routes/userRoutes');
 const categories = require('./routes/categoriesRoutes');
 const products = require('./routes/productsRoutes');
 const address = require('./routes/addressRoutes');
+const orders = require('./routes/ordersRoutes');
 
 
 // const { credential } = require('firebase-admin');
@@ -63,6 +64,7 @@ users(app, upload);
 categories(app);
 products(app, upload);
 address(app);
+orders(app);
 
 server.listen(3000, '192.168.8.100' || 'localhost', function() {
     console.log('Aplicacion de NodeJS ' + port + ' Iniciada...')
