@@ -9,4 +9,8 @@ module.exports = (app) => {
     //GET ROUTES
     app.get('/api/orders/findByStatus/:status', passport.authenticate('jwt', {session: false}), OrdersController.findByStatus);
 
+    //PUt ROUTES
+    app.put('/api/orders/updateToDispatched', passport.authenticate('jwt', {session: false}), OrdersController.updateToDispatched);
+
+
 }
