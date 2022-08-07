@@ -6,7 +6,8 @@ module.exports = {
 async create(req, res, next){
     try {
         
-        const order = req.body;
+        let order = req.body;
+        order.status = 'PAGADO';
         const data = await Order.create(order);
 
         //Recorrer todos los productos agregados a la orden
