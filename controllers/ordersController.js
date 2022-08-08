@@ -129,6 +129,23 @@ async findByDeliveryAndStatus(req, res, next) {
             success: false
         });
     }
+},
+
+async findByClientAndStatus(req, res, next) {
+    try {
+        const id_client = req.params.id_client;
+        const status = req.params.status;
+
+        const data = await Order.findByClientAndStatus(id_client, status);
+        return res.status(201).json(data);
+    } catch (error) {
+        console.log(`Error: ${error}`);
+        return res.status(501).json({
+            message: 'Hubo un error al tratar de obtener las ordenes por estado',
+            error: error,
+            success: false
+        });
+    }
 }
 
 }
