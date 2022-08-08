@@ -30,6 +30,12 @@ Order.findByStatus = (status) => {
             'lastname', U.lastname,
             'image', U.image
         ) AS client,
+		JSON_BUILD_OBJECT(
+            'id', U2.id,
+            'name', U2.name,
+            'lastname', U2.lastname,
+            'image', U2.image
+        ) AS delivery,
         JSON_BUILD_OBJECT(
             'id', A.id,
             'address', A.address,
@@ -43,6 +49,10 @@ Order.findByStatus = (status) => {
         users AS U
     ON
         O.id_client = U.id
+	LEFT JOIN 
+		users AS U2
+	ON
+		O.id_delivery = U2.id
     INNER JOIN
         address AS A
     ON
@@ -58,7 +68,7 @@ Order.findByStatus = (status) => {
     WHERE
         status = $1
 	GROUP BY
-		O.id, U.id, A.id
+		O.id, U.id, A.id, U2.id
     `;
 
     return db.manyOrNone(sql, status);
