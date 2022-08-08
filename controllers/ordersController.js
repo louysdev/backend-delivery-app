@@ -40,7 +40,29 @@ async updateToDispatched(req, res, next){
 
         return res.status(201).json({
             success: true,
-            message: 'La order se actualizo correctamente',
+            message: 'La ordern se actualizo correctamente',
+        });
+
+    } catch (error) {
+        console.log(`Error ${error}`);
+        return res.status(501).json({
+            success: false,
+            message: 'Hubo un error al actualizar la orden',
+            error: error
+        });
+    }
+},
+
+async updateToOnTheWay(req, res, next){
+    try {
+        
+        let order = req.body;
+        order.status = 'EN CAMINO';
+        const data = await Order.update(order);
+
+        return res.status(201).json({
+            success: true,
+            message: 'La orden se actualizo correctamente',
         });
 
     } catch (error) {
