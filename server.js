@@ -66,7 +66,7 @@ products(app, upload);
 address(app);
 orders(app);
 
-server.listen(3000, '192.168.8.100' || 'localhost', function() {
+server.listen(process.env.PORT || 3000, function() {
     console.log('Aplicacion de NodeJS ' + port + ' Iniciada...')
 });
 
